@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const entryRoutes = require('./routes/entryRoutes');
 
 connectDB();
 
@@ -17,6 +18,7 @@ app.use(express.json()); // Enable a-pp to parse JSON request bodies
 // 5. Mount Routes
 // Any request starting with /api/users will be handled by userRoutes
 app.use('/api/users', userRoutes);
+app.use('/api/entries', entryRoutes);
 
 // 4. Create a test route
 // This is to check if our server is running
