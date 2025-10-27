@@ -3,16 +3,28 @@ import { Toaster } from 'react-hot-toast';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Header from './components/Header'; 
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
     <>
       <Toaster position="top-right" />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <Header /> {}
+      <div className="container" style={{ padding: '2rem' }}>
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <ProtectedRoute> {}
+                <Dashboard />
+              </ProtectedRoute>
+              } 
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </div>
     </>
   );
 }
