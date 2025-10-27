@@ -2,6 +2,9 @@
 require('dotenv').config(); // Loads .env file contents into process.env
 const express = require('express');
 const cors = require('cors');
+const connectDB = require('./config/db');
+
+connectDB();
 
 // 2. Create Express app
 const app = express();
